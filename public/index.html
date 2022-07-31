@@ -44,6 +44,13 @@
           <div id="myDynamicTable"></div>
         </div>
         <div id="tabs-3">
+          <form id="my-login">
+            <input type="text" id="teb3_txtEmail" name="teb3_txtEmail" placeholder="Email" />
+            <br/>
+            <input type="password" id="teb3_txtPassword" name="teb3_txtPassword" placeholder="Password" />
+            <br/>
+            <input type="button" id="btnLogin" value="Login"/>
+        </form> 
         
         </div>
     </div><!-- tabs-->
@@ -62,7 +69,8 @@
                     console.log("tabs-2");
                 }else if(tabIndex == 2){
                     console.log("tabs-3");
-                }
+                }else if(tabIndex == 3)
+                {}
             }
         });
 
@@ -76,7 +84,7 @@
             headers: { 
               'Content-Type': 'application/json',
               "Accepts": "application/json",
-              "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90b29scy5lY3BlLm51LmFjLnRoXC9uZXR3b3JrXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjU5MTc2MTU0LCJleHAiOjE2NTkxNzk3NTQsIm5iZiI6MTY1OTE3NjE1NCwianRpIjoiYUlLdldEVGNONUl4MmRxTCIsInN1YiI6MjQsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.dOgX4XZCjZxaZ2B5qzChsmW-Q26JUGZWGFPxH90MK5M",
+              "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90b29scy5lY3BlLm51LmFjLnRoXC9uZXR3b3JrXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjU5MjY3MjgxLCJleHAiOjE2NTkyNzA4ODEsIm5iZiI6MTY1OTI2NzI4MSwianRpIjoidmI4eTBINEw5b1NibUNRcyIsInN1YiI6MjQsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vFcZ8G7v045089zga4RFicshdDdzoVzK6rmJcBP-I28",
             },
             success: function(data){
               console.log(data);
@@ -97,7 +105,7 @@
             headers: { 
               'Content-Type': 'application/json',
               "Accepts": "application/json",
-              "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90b29scy5lY3BlLm51LmFjLnRoXC9uZXR3b3JrXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjU5MTc2MTU0LCJleHAiOjE2NTkxNzk3NTQsIm5iZiI6MTY1OTE3NjE1NCwianRpIjoiYUlLdldEVGNONUl4MmRxTCIsInN1YiI6MjQsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.dOgX4XZCjZxaZ2B5qzChsmW-Q26JUGZWGFPxH90MK5M",
+              "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90b29scy5lY3BlLm51LmFjLnRoXC9uZXR3b3JrXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjU5MjY3MjgxLCJleHAiOjE2NTkyNzA4ODEsIm5iZiI6MTY1OTI2NzI4MSwianRpIjoidmI4eTBINEw5b1NibUNRcyIsInN1YiI6MjQsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vFcZ8G7v045089zga4RFicshdDdzoVzK6rmJcBP-I28",
             },
             data:JSON.stringify( { "name": $('#txtName').val(), "student_id": $('#txtStudentID').val(), "email": $('#txtEmail').val(), "password": $('#txtPassword').val() } ),
             success: function(data){
@@ -105,7 +113,26 @@
              
             }
           });
+        });
 
+         //btnLogin
+         $('#btnLogin').click( function(){
+          //console.log("Login");
+          $.ajax({
+            method: "POST",
+            url: "https://tools.ecpe.nu.ac.th/network/api/login",
+            dataType : 'json',
+            headers: { 
+              'Content-Type': 'application/json',
+              "Accepts": "application/json",
+              "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90b29scy5lY3BlLm51LmFjLnRoXC9uZXR3b3JrXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjU5MjY3MjgxLCJleHAiOjE2NTkyNzA4ODEsIm5iZiI6MTY1OTI2NzI4MSwianRpIjoidmI4eTBINEw5b1NibUNRcyIsInN1YiI6MjQsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vFcZ8G7v045089zga4RFicshdDdzoVzK6rmJcBP-I28",
+            },
+            data:JSON.stringify( { "email": $('#teb3_txtEmail').val(), "password": $('#teb3_txtSassword').val(), } ),
+            function(data){
+              console.log(data);
+            
+            }
+          });
         });
     });
 </script>  
