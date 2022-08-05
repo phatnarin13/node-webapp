@@ -9,6 +9,11 @@
 <!--CSS-->
 <link rel="stylesheet" href="/jquery-ui/themes/base/jquery-ui.css">
 
+<!--Tailwind CSS-->
+<!-- <link rel="stylesheet" href="/styles/style.css"/> -->
+
+<link rel="stylesheet" href="/script/tailwind.css"/>
+
 <!--Javascript-->
 <script src="/jquery/jquery.min.js"></script>
 <script src="/jquery-ui/jquery-ui.min.js"></script>
@@ -24,6 +29,7 @@
           <li><a href="#tabs-1">1-แบบฟอร์มลงทะเบียน</a></li>
           <li><a href="#tabs-2">2-รายชื่อนิสิต(ALL)</a></li>
           <li><a href="#tabs-3">3-ข้อมูลนิสิต</a></li>
+          <li><a href="#tabs-4">4-ล็อกอิน</a></li>
         </ul>
         <div id="tabs-1"> 
             <form id="my-form">
@@ -37,20 +43,37 @@
             <br/>
             <input type="button" id="btnSubmit" value="Submit"/>
         </form> 
- 
-        </div>
+      </div>
         <div id="tabs-2">
           <button class="ui-button ui-widget ui-corner-all" id="btnRequest">Load</button>
           <div id="myDynamicTable"></div>
         </div>
+
+        
         <div id="tabs-3">
-          <form id="my-login">
-            <input type="text" id="teb3_txtEmail" name="teb3_txtEmail" placeholder="Email" />
+          <div class="flex justify-center">
+            <div class="rounded-lg shadow-lg bg-white max-w-sm">
+              <a href="#!">
+                <img class="rounded-t-lg" src="/images/dog.jpg" alt=""/>
+              </a>
+              <div class="p-6">
+                <h5 class="text-gray-900 text-xl font-medium mb-2">Card title</h5>
+                <p class="text-gray-700 text-base mb-4">
+                  Some quick example text to build on the card title and make up the bulk of the card's
+                  content.
+                </p>
+                <button type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Button</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="tabs-4">
+            <input type="text" id="teb4_txtEmail" name="teb4_txtEmail" placeholder="Email" />
             <br/>
-            <input type="password" id="teb3_txtPassword" name="teb3_txtPassword" placeholder="Password" />
+            <input type="password" id="teb4_txtPassword" name="teb4_txtPassword" placeholder="Password" />
             <br/>
             <input type="button" id="btnLogin" value="Login"/>
-        </form> 
         
         </div>
     </div><!-- tabs-->
@@ -69,8 +92,9 @@
                     console.log("tabs-2");
                 }else if(tabIndex == 2){
                     console.log("tabs-3");
-                }else if(tabIndex == 3)
-                {}
+                }else if(tabIndex == 3){
+                    console.log("tabs-4");
+                }else if(tabIndex == 3){}
             }
         });
 
@@ -84,7 +108,7 @@
             headers: { 
               'Content-Type': 'application/json',
               "Accepts": "application/json",
-              "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90b29scy5lY3BlLm51LmFjLnRoXC9uZXR3b3JrXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjU5MjY3MjgxLCJleHAiOjE2NTkyNzA4ODEsIm5iZiI6MTY1OTI2NzI4MSwianRpIjoidmI4eTBINEw5b1NibUNRcyIsInN1YiI6MjQsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vFcZ8G7v045089zga4RFicshdDdzoVzK6rmJcBP-I28",
+              "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90b29scy5lY3BlLm51LmFjLnRoXC9uZXR3b3JrXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjU5Njk0OTAxLCJleHAiOjE2NTk2OTg1MDEsIm5iZiI6MTY1OTY5NDkwMSwianRpIjoidm1oamZ1ZjlEUlY2QW1zbiIsInN1YiI6MjQsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.bcQ3SUtAROj7CHXGSKldtz6rqPgrlyf71HspXyzKsb8",
             },
             success: function(data){
               console.log(data);
@@ -105,7 +129,7 @@
             headers: { 
               'Content-Type': 'application/json',
               "Accepts": "application/json",
-              "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90b29scy5lY3BlLm51LmFjLnRoXC9uZXR3b3JrXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjU5MjY3MjgxLCJleHAiOjE2NTkyNzA4ODEsIm5iZiI6MTY1OTI2NzI4MSwianRpIjoidmI4eTBINEw5b1NibUNRcyIsInN1YiI6MjQsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vFcZ8G7v045089zga4RFicshdDdzoVzK6rmJcBP-I28",
+              "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90b29scy5lY3BlLm51LmFjLnRoXC9uZXR3b3JrXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjU5Njk0OTAxLCJleHAiOjE2NTk2OTg1MDEsIm5iZiI6MTY1OTY5NDkwMSwianRpIjoidm1oamZ1ZjlEUlY2QW1zbiIsInN1YiI6MjQsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.bcQ3SUtAROj7CHXGSKldtz6rqPgrlyf71HspXyzKsb8",
             },
             data:JSON.stringify( { "name": $('#txtName').val(), "student_id": $('#txtStudentID').val(), "email": $('#txtEmail').val(), "password": $('#txtPassword').val() } ),
             success: function(data){
@@ -125,12 +149,13 @@
             headers: { 
               'Content-Type': 'application/json',
               "Accepts": "application/json",
-              "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90b29scy5lY3BlLm51LmFjLnRoXC9uZXR3b3JrXC9hcGlcL2xvZ2luIiwiaWF0IjoxNjU5MjY3MjgxLCJleHAiOjE2NTkyNzA4ODEsIm5iZiI6MTY1OTI2NzI4MSwianRpIjoidmI4eTBINEw5b1NibUNRcyIsInN1YiI6MjQsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.vFcZ8G7v045089zga4RFicshdDdzoVzK6rmJcBP-I28",
+              "Authorization": "Bearer ",
+              //Content-Type text/html; charset=UTF-8
+
             },
-            data:JSON.stringify( { "email": $('#teb3_txtEmail').val(), "password": $('#teb3_txtSassword').val(), } ),
-            function(data){
+            data:JSON.stringify( { "email": $('#teb4_txtEmail').val(), "password": $('#teb4_txtPassword').val() }),
+            success: function(data){
               console.log(data);
-            
             }
           });
         });
